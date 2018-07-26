@@ -1,4 +1,4 @@
-package com.welltestedlearning.kiosk;
+package com.welltestedlearning.mealkiosk;
 
 public enum DrinkOption {
   REGULAR,

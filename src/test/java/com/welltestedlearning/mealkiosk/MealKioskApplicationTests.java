@@ -1,4 +1,4 @@
-package com.welltestedlearning.mealorder;
+package com.welltestedlearning.mealkiosk;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class MealorderApplicationTests {
+public class MealKioskApplicationTests {
 
 	@Test
 	public void contextLoads() {

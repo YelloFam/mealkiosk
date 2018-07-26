@@ -1,4 +1,4 @@
-package com.welltestedlearning.kiosk;
+package com.welltestedlearning.mealkiosk;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

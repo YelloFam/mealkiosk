@@ -1,4 +1,4 @@
-package com.welltestedlearning.kiosk;
+package com.welltestedlearning.mealkiosk;
 
 import java.util.ArrayList;
 import java.util.List;

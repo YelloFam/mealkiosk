@@ -1,5 +1,6 @@
-import com.welltestedlearning.kiosk.Burger;
-import org.assertj.core.api.Assertions;
+package com.welltestedlearning.mealkiosk;
+
+import com.welltestedlearning.mealkiosk.Burger;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
