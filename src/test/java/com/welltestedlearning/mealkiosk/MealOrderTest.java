@@ -15,6 +15,15 @@ public class MealOrderTest {
   }
 
   @Test
+  public void mealWithRegularBurgerAndRegularFriesIs8() throws Exception {
+    MealOrder mealOrder = new MealOrder(BurgerOption.REGULAR);
+    mealOrder.addFries(Fries.REGULAR);
+    
+    assertThat(mealOrder.price())
+      .isEqualTo(8);
+  }
+  
+  @Test
   public void mealWithCheeseBurgerIs6() throws Exception {
     MealOrder mealOrder = new MealOrder(BurgerOption.CHEESEBURGER);
 
