@@ -3,35 +3,36 @@ package com.welltestedlearning.mealkiosk;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Drink extends Quantifiable implements MenuItem {
+public class Drink implements MenuItem {
 
   public static final String DRINK_REGULAR = "regular";
   public static final String DRINK_LARGE = "large";
 
-  private String drinkSize = ""; // regular or large
+  private String size = ""; // regular or large
 
   private static final Logger LOGGER = LoggerFactory.getLogger(Drink.class);
 
   public Drink() {
   }
 
-  public Drink(String theDrinkSize) throws DrinkSizeNotValidException {
-//    if (notValid(theDrinkSize)) {
-//      throw new DrinkSizeNotValidException("Drink size is not valid: " + theDrinkSize);
-//    }
-    drinkSize = theDrinkSize;
+  public Drink(String drinkSize) {
+    validateSize(drinkSize);
+    size = drinkSize;
   }
 
-  private boolean notValid(String theDrinkSize) {
-    return true;
+  private void validateSize(String drinkSize) {
+    if (drinkSize.equalsIgnoreCase(DRINK_LARGE) || drinkSize.equalsIgnoreCase(DRINK_REGULAR)) {
+      return;
+    }
+    throw new DrinkSizeNotValidException("Drink size `" + drinkSize + "` not recognized.");
   }
 
   @Override
-  public int basePrice() {
+  public int price() {
     int price = 0;
-    if (drinkSize.equals(DRINK_REGULAR)) {
+    if (size.equals(DRINK_REGULAR)) {
       price = 1;
-    } else if (drinkSize.equals(DRINK_LARGE)) {
+    } else if (size.equals(DRINK_LARGE)) {
       price = 2;
     }
     return price;
@@ -44,6 +45,6 @@ public class Drink extends Quantifiable implements MenuItem {
 
   @Override
   public String toString() {
-    return "Drink Size: " + drinkSize;
+    return "Drink Size: " + size;
   }
 }

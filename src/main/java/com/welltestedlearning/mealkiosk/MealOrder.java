@@ -22,31 +22,25 @@ public class MealOrder {
   public MealOrder() {
   }
 
-  public MealOrder(BurgerOption burger) {
-    addBurger(burger.name().toLowerCase());
+  public MealOrder(BurgerOption burgerOption) {
+    addBurger(burgerOption);
   }
 
-  public void addDrink(String drinkType) {
-    items.add(new Drink(drinkType));
+  public void addDrink(String drinkSize) {
+    items.add(new Drink(drinkSize));
   }
 
-
-  public void addBurger(String burgerType) {
-    items.add(new Burger(burgerType));
+  public void addFries(String friesSize) {
+    items.add(new Fries(friesSize));
   }
 
-  public MealOrder(String burgerType) {
-    addBurger(burgerType);
-  }
-
-  public MealOrder(String burgerType, String drinkSize) {
-    addBurger(burgerType);
-    addDrink(drinkSize);
+  public void addBurger(BurgerOption burgerOption) {
+    items.add(new Burger(burgerOption));
   }
 
   public MealOrder(BurgerOption burger,
                    DrinkOption drink) {
-    addBurger(burger.name().toLowerCase());
+    addBurger(burger);
     addDrink(drink.name().toLowerCase());
   }
 

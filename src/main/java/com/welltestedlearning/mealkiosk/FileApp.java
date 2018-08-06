@@ -24,8 +24,9 @@ public class FileApp {
           break;
         }
         String[] items = line.split(",");
-        MealOrder mealOrder = new MealOrder(items[0], items[1]);
-        mealOrder.display();
+// -- to be fixed in lab --
+//        MealOrder mealOrder = new MealOrder(items[0], items[1]);
+//        mealOrder.display();
       }
     } catch (URISyntaxException e) {
       e.printStackTrace();

@@ -1,43 +1,31 @@
 package com.welltestedlearning.mealkiosk;
 
-public class Burger extends Quantifiable implements MenuItem {
+public class Burger implements MenuItem {
 
-  public static final String BURGER_CHEESE = "cheeseburger";
-  public static final String BURGER_REGULAR = "regular";
+  private BurgerOption burgerOption;
 
-  private String burgerType;
-
-  public Burger(String newBurgerType) {
-    burgerType = newBurgerType;
-  }
-
-  public Burger(String newBurgerType, int newQuantity) {
-    burgerType = newBurgerType;
-    quantity = newQuantity;
-  }
-
-  public Burger(BurgerOption burgerOption) {
-    burgerType = burgerOption.name().toLowerCase();
+  public Burger(BurgerOption theBurgerOption) {
+    burgerOption = theBurgerOption;
   }
 
   @Override
-  public int basePrice() {
-    if (burgerType.equals(BURGER_REGULAR)) {
+  public int price() {
+    if (burgerOption.equals(BurgerOption.REGULAR)) {
       return 5;
-    } else if (burgerType.equals(BURGER_CHEESE)) {
+    } else if (burgerOption.equals(BurgerOption.CHEESEBURGER)) {
       return 6;
     }
     return 0;
   }
 
   public void display() {
-    System.out.println("Burger: " + burgerType);
+    System.out.println("Burger: " + burgerOption);
   }
 
   @Override
   public String toString() {
-    return "Burger{" +
-        "burgerType='" + burgerType + '\'' +
+    return "Burger {" +
+        "burgerOption=" + burgerOption +
         '}';
   }
 }
