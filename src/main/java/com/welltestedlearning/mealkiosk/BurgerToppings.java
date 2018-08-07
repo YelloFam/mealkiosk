@@ -1,17 +1,17 @@
 package com.welltestedlearning.mealkiosk;
 
-public enum BurgerOption {
-  CHEESEBURGER(6),
-  REGULAR(5),
-  BACONCHEESEBURGER(8)
+public enum BurgerToppings {
+  CHEESE(1),
+  BACON(1),
+  AVOCADO(3)
   ;
-  
+
   private final int price;
-  
-  private BurgerOption(int thePrice) {
+
+  private BurgerToppings(int thePrice) {
     price = thePrice;
   }
-  
+
   public int price() {
     return price;
   }

@@ -7,7 +7,7 @@ package com.welltestedlearning.mealkiosk;
 public class SpecialMealOrder extends MealOrder {
 
   public SpecialMealOrder() {
-    addBurger(BurgerOption.CHEESEBURGER);
+    addBurger(BurgerToppings.CHEESE);
     addDrink(Drink.DRINK_LARGE);
     addFries(Fries.LARGE);
   }

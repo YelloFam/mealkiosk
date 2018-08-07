@@ -16,7 +16,8 @@ public class MealOrderTest {
 
   @Test
   public void mealWithRegularBurgerAndRegularFriesIs8() throws Exception {
-    MealOrder mealOrder = new MealOrder(BurgerOption.REGULAR);
+    MealOrder mealOrder = new MealOrder();
+    mealOrder.addBurger();
     mealOrder.addFries(Fries.REGULAR);
     
     assertThat(mealOrder.price())
@@ -25,7 +26,8 @@ public class MealOrderTest {
   
   @Test
   public void mealWithCheeseBurgerIs6() throws Exception {
-    MealOrder mealOrder = new MealOrder(BurgerOption.CHEESEBURGER);
+    MealOrder mealOrder = new MealOrder();
+    mealOrder.addBurger(BurgerToppings.CHEESE);
 
     assertThat(mealOrder.price())
         .isEqualTo(6);
@@ -33,7 +35,9 @@ public class MealOrderTest {
 
   @Test
   public void mealWithRegularBurgerLargeDrinkCosts7() throws Exception {
-    MealOrder mealOrder = new MealOrder(BurgerOption.REGULAR, DrinkOption.LARGE);
+    MealOrder mealOrder = new MealOrder();
+    mealOrder.addBurger();
+    mealOrder.addDrink(Drink.DRINK_LARGE);
 
     assertThat(mealOrder.price())
         .isEqualTo(7);

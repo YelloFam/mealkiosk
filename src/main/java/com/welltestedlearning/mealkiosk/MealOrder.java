@@ -22,8 +22,18 @@ public class MealOrder {
   public MealOrder() {
   }
 
-  public MealOrder(BurgerOption burgerOption) {
+  public MealOrder(BurgerToppings burgerOption) {
     addBurger(burgerOption);
+  }
+  
+  public MealOrder(String drinkSize) {
+    addDrink(drinkSize);
+  }
+
+  public MealOrder(BurgerToppings burger,
+      DrinkOption drink) {
+    addBurger(burger);
+    addDrink(drink.name().toLowerCase());
   }
 
   public void addDrink(String drinkSize) {
@@ -34,14 +44,8 @@ public class MealOrder {
     items.add(new Fries(friesSize));
   }
 
-  public void addBurger(BurgerOption burgerOption) {
+  public void addBurger(BurgerToppings burgerOption) {
     items.add(new Burger(burgerOption));
-  }
-
-  public MealOrder(BurgerOption burger,
-                   DrinkOption drink) {
-    addBurger(burger);
-    addDrink(drink.name().toLowerCase());
   }
 
   public int price() {
@@ -58,6 +62,10 @@ public class MealOrder {
        item.display();
     }
     System.out.println(price());
+  }
+
+  public void addBurger() {
+    items.add(new Burger());
   }
 }
 

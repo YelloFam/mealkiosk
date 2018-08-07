@@ -2,22 +2,21 @@ package com.welltestedlearning.mealkiosk;
 
 public class Burger implements MenuItem {
 
-  private BurgerOption burgerOption;
+  private BurgerToppings burgerOption;
 
   public Burger() {
-    burgerOption = BurgerOption.REGULAR;
   }
 
-  public Burger(BurgerOption theBurgerOption) {
+  public Burger(BurgerToppings theBurgerOption) {
     burgerOption = theBurgerOption;
   }
 
   @Override
   public int price() {
-    if (burgerOption != null) {
-       return burgerOption.price();
+    if (burgerOption == null) {
+      return 5;
     }
-    return 0;
+   return 5 + burgerOption.price();
   }
 
   public void display() {
