@@ -1,6 +1,5 @@
 package com.welltestedlearning.mealkiosk;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,7 +18,8 @@ public class BurgerTest {
 
   @Test
   public void cheeseburgerCosts6() throws Exception {
-    Burger burger = new Burger(BurgerToppings.CHEESE);
+    Burger burger = new Burger();
+    burger.addTopping(BurgerToppings.CHEESE);
 
     assertThat(burger.price())
               .isEqualTo(6);
@@ -33,10 +33,20 @@ public class BurgerTest {
               .isEqualTo(8);
   }
 
-  @Ignore("Need to have multiple toppings")
+  @Test
+  public void baconBurgerCosts7() throws Exception {
+    Burger burger = new Burger();
+    burger.addTopping(BurgerToppings.BACON);
+
+    assertThat(burger.price())
+        .isEqualTo(7);
+  }
+
   @Test
   public void baconCheeseburgerCosts8() throws Exception {
-    Burger burger = new Burger(BurgerToppings.BACON);
+    Burger burger = new Burger();
+    burger.addTopping(BurgerToppings.BACON);
+    burger.addTopping(BurgerToppings.CHEESE);
 
     assertThat(burger.price())
             .isEqualTo(8);

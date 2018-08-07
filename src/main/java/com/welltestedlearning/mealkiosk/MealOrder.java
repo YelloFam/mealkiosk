@@ -6,6 +6,7 @@ import java.util.List;
 public class MealOrder {
   private List<MenuItem> items = new ArrayList<>();
 
+
   public static MealOrder createBurgerOnlyOrder() {
     return new MealOrder();
   }
@@ -25,7 +26,7 @@ public class MealOrder {
   public MealOrder(BurgerToppings burgerOption) {
     addBurger(burgerOption);
   }
-  
+
   public MealOrder(String drinkSize) {
     addDrink(drinkSize);
   }

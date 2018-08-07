@@ -2,7 +2,7 @@ package com.welltestedlearning.mealkiosk;
 
 public enum BurgerToppings {
   CHEESE(1),
-  BACON(1),
+  BACON(2),
   AVOCADO(3)
   ;
 

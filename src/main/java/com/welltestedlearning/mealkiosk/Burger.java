@@ -1,32 +1,42 @@
 package com.welltestedlearning.mealkiosk;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Burger implements MenuItem {
 
-  private BurgerToppings burgerOption;
+  public static final int BURGER_BASE_PRICE = 5;
+
+  private List<BurgerToppings> burgerToppings = new ArrayList<>();
 
   public Burger() {
   }
 
-  public Burger(BurgerToppings theBurgerOption) {
-    burgerOption = theBurgerOption;
+  public Burger(BurgerToppings theBurgerTopping) {
+    addTopping(theBurgerTopping);
   }
 
   @Override
   public int price() {
-    if (burgerOption == null) {
-      return 5;
+    int price = BURGER_BASE_PRICE;
+    for (BurgerToppings topping : burgerToppings) {
+      price = price + topping.price();
     }
-   return 5 + burgerOption.price();
+   return price;
+  }
+
+  public void addTopping(BurgerToppings topping) {
+    burgerToppings.add(topping);
   }
 
   public void display() {
-    System.out.println("Burger: " + burgerOption);
+    System.out.println("Burger: " + burgerToppings);
   }
 
   @Override
   public String toString() {
     return "Burger {" +
-        "burgerOption=" + burgerOption +
+        "burgerToppings=" + burgerToppings +
         '}';
   }
 }
