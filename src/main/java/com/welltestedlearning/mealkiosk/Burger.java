@@ -4,20 +4,19 @@ public class Burger implements MenuItem {
 
   private BurgerOption burgerOption;
 
+  public Burger() {
+    burgerOption = BurgerOption.REGULAR;
+  }
+
   public Burger(BurgerOption theBurgerOption) {
     burgerOption = theBurgerOption;
   }
 
   @Override
   public int price() {
-    if (burgerOption.equals(BurgerOption.REGULAR)) {
-      return 5;
-    } else if (burgerOption.equals(BurgerOption.CHEESEBURGER)) {
-      return 6;
-    } else if (burgerOption.equals(BurgerOption.BACONCHEESEBURGER)) {
-      return 8;
+    if (burgerOption != null) {
+       return burgerOption.price();
     }
-      
     return 0;
   }
 

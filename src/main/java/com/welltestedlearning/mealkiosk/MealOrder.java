@@ -6,8 +6,8 @@ import java.util.List;
 public class MealOrder {
   private List<MenuItem> items = new ArrayList<>();
 
-  public static MealOrder createBurgerOnlyOrder(BurgerOption burgerOption) {
-    return new MealOrder(burgerOption);
+  public static MealOrder createBurgerOnlyOrder() {
+    return new MealOrder();
   }
 
   public static void main(String[] args) {
@@ -15,7 +15,7 @@ public class MealOrder {
     drinkOrder.addDrink(Drink.DRINK_LARGE);
     drinkOrder.display();
 
-    MealOrder burgerOrder = createBurgerOnlyOrder(BurgerOption.REGULAR);
+    MealOrder burgerOrder = createBurgerOnlyOrder();
     burgerOrder.display();
   }
 
