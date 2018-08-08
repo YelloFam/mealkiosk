@@ -18,11 +18,16 @@ public class Burger implements MenuItem {
 
   @Override
   public int price() {
-    int price = BURGER_BASE_PRICE;
+    return BURGER_BASE_PRICE + calculateToppingsPrice();
+  }
+
+  private int calculateToppingsPrice() {
+    int toppingsPrice = 0;
+    // calculate sum of all toppings
     for (BurgerTopping topping : burgerToppings) {
-      price = price + topping.price();
+      toppingsPrice = toppingsPrice + topping.price();
     }
-   return price;
+    return toppingsPrice;
   }
 
   public void addTopping(BurgerTopping topping) {

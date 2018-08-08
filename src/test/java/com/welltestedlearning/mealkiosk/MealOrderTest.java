@@ -10,8 +10,7 @@ public class MealOrderTest {
   public void emptyMealIsZeroPrice() throws Exception {
     MealOrder mealOrder = new MealOrder();
 
-    assertThat(mealOrder.price())
-        .isZero();
+    assertThat(mealOrder.price()).isZero();
   }
 
   @Test
@@ -20,8 +19,7 @@ public class MealOrderTest {
     mealOrder.addBurger();
     mealOrder.addFries(Fries.REGULAR);
 
-    assertThat(mealOrder.price())
-      .isEqualTo(8);
+    assertThat(mealOrder.price()).isEqualTo(8);
   }
 
   @Test
@@ -29,8 +27,7 @@ public class MealOrderTest {
     MealOrder mealOrder = new MealOrder();
     mealOrder.addBurger(BurgerTopping.CHEESE);
 
-    assertThat(mealOrder.price())
-        .isEqualTo(6);
+    assertThat(mealOrder.price()).isEqualTo(6);
   }
 
   @Test
@@ -39,8 +36,7 @@ public class MealOrderTest {
     mealOrder.addBurger();
     mealOrder.addDrink(Drink.DRINK_LARGE);
 
-    assertThat(mealOrder.price())
-        .isEqualTo(7);
+    assertThat(mealOrder.price()).isEqualTo(7);
   }
 
 }
