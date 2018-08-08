@@ -1,6 +1,6 @@
 package com.welltestedlearning.mealkiosk;
 
-public enum BurgerToppings {
+public enum BurgerTopping {
   CHEESE(1),
   BACON(2),
   AVOCADO(3)
@@ -8,7 +8,7 @@ public enum BurgerToppings {
 
   private final int price;
 
-  private BurgerToppings(int thePrice) {
+  private BurgerTopping(int thePrice) {
     price = thePrice;
   }
 

@@ -19,15 +19,15 @@ public class MealOrderTest {
     MealOrder mealOrder = new MealOrder();
     mealOrder.addBurger();
     mealOrder.addFries(Fries.REGULAR);
-    
+
     assertThat(mealOrder.price())
       .isEqualTo(8);
   }
-  
+
   @Test
   public void mealWithCheeseBurgerIs6() throws Exception {
     MealOrder mealOrder = new MealOrder();
-    mealOrder.addBurger(BurgerToppings.CHEESE);
+    mealOrder.addBurger(BurgerTopping.CHEESE);
 
     assertThat(mealOrder.price())
         .isEqualTo(6);

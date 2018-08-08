@@ -16,14 +16,14 @@ public class MealOrder {
     drinkOrder.addDrink(Drink.DRINK_LARGE);
     drinkOrder.display();
 
-    MealOrder burgerOrder = createBurgerOnlyOrder();
+    MealOrder burgerOrder = MealOrder.createBurgerOnlyOrder();
     burgerOrder.display();
   }
 
   public MealOrder() {
   }
 
-  public MealOrder(BurgerToppings burgerOption) {
+  public MealOrder(BurgerTopping burgerOption) {
     addBurger(burgerOption);
   }
 
@@ -31,7 +31,7 @@ public class MealOrder {
     addDrink(drinkSize);
   }
 
-  public MealOrder(BurgerToppings burger,
+  public MealOrder(BurgerTopping burger,
       DrinkOption drink) {
     addBurger(burger);
     addDrink(drink.name().toLowerCase());
@@ -45,7 +45,7 @@ public class MealOrder {
     items.add(new Fries(friesSize));
   }
 
-  public void addBurger(BurgerToppings burgerOption) {
+  public void addBurger(BurgerTopping burgerOption) {
     items.add(new Burger(burgerOption));
   }
 
