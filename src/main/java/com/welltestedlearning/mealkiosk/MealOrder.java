@@ -7,19 +7,6 @@ public class MealOrder {
   private List<MenuItem> items = new ArrayList<>();
 
 
-  public static MealOrder createBurgerOnlyOrder() {
-    return new MealOrder();
-  }
-
-  public static void main(String[] args) {
-    MealOrder drinkOrder = new MealOrder();
-    drinkOrder.addDrink(Drink.DRINK_LARGE);
-    drinkOrder.display();
-
-    MealOrder burgerOrder = MealOrder.createBurgerOnlyOrder();
-    burgerOrder.display();
-  }
-
   public MealOrder() {
   }
 
@@ -45,6 +32,10 @@ public class MealOrder {
     items.add(new Fries(friesSize));
   }
 
+  public void addBurger() {
+    items.add(new Burger());
+  }
+
   public void addBurger(BurgerTopping burgerOption) {
     items.add(new Burger(burgerOption));
   }
@@ -65,8 +56,5 @@ public class MealOrder {
     System.out.println(price());
   }
 
-  public void addBurger() {
-    items.add(new Burger());
-  }
 }
 
