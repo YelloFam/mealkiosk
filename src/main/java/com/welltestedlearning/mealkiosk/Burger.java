@@ -1,13 +1,10 @@
 package com.welltestedlearning.mealkiosk;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Burger implements MenuItem {
 
   public static final int BURGER_BASE_PRICE = 5;
 
-  private List<BurgerTopping> burgerToppings = new ArrayList<>();
+  private Toppings burgerToppings = new Toppings();
 
   public Burger() {
   }
@@ -18,20 +15,11 @@ public class Burger implements MenuItem {
 
   @Override
   public int price() {
-    return BURGER_BASE_PRICE + calculateToppingsPrice();
-  }
-
-  private int calculateToppingsPrice() {
-    int toppingsPrice = 0;
-    // calculate sum of all toppings
-    for (BurgerTopping topping : burgerToppings) {
-      toppingsPrice = toppingsPrice + topping.price();
-    }
-    return toppingsPrice;
+    return BURGER_BASE_PRICE + burgerToppings.price();
   }
 
   public void addTopping(BurgerTopping topping) {
-    burgerToppings.add(topping);
+    burgerToppings.addTopping(topping);
   }
 
   public void display() {

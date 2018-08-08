@@ -15,7 +15,7 @@ public class Toppings {
     return toppingsPrice;
   }
 
-  public void add(BurgerTopping burgerTopping) {
+  public void addTopping(BurgerTopping burgerTopping) {
     toppings.add(burgerTopping);
   }
 }

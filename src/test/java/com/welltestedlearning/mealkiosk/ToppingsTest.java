@@ -16,8 +16,8 @@ public class ToppingsTest {
   @Test
   public void baconAndCheeseCosts3() {
     Toppings toppings = new Toppings();
-    toppings.add(BurgerTopping.CHEESE);
-    toppings.add(BurgerTopping.BACON);
+    toppings.addTopping(BurgerTopping.CHEESE);
+    toppings.addTopping(BurgerTopping.BACON);
 
     assertThat(toppings.price())
         .isEqualTo(3);
