@@ -13,4 +13,20 @@ public class ChickenSandwichTest {
         .isEqualTo(6);
   }
 
+  @Test
+  public void chickenSandwichDefaultsToSpicy() throws Exception {
+    ChickenSandwich chickenSandwich = new ChickenSandwich();
+
+    assertThat(chickenSandwich.isSpicy())
+        .isTrue();
+  }
+
+  @Test
+  public void chickenSandwichCanBeNotSpicy() throws Exception {
+    ChickenSandwich chickenSandwich = new ChickenSandwich(false);
+
+    assertThat(chickenSandwich.isSpicy())
+        .isFalse();
+  }
+
 }
