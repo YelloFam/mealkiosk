@@ -29,4 +29,13 @@ public class ChickenSandwichTest {
         .isFalse();
   }
 
+  @Test
+  public void chickenSandwichWithBaconIs8() throws Exception {
+    ChickenSandwich chickenSandwich = new ChickenSandwich();
+    chickenSandwich.addTopping(BurgerTopping.BACON);
+
+    assertThat(chickenSandwich.price())
+        .isEqualTo(8);
+  }
+
 }
