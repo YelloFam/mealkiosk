@@ -2,6 +2,8 @@ package com.welltestedlearning.mealkiosk;
 
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ToppingsTest {
@@ -19,7 +21,8 @@ public class ToppingsTest {
     toppings.addTopping(BurgerTopping.CHEESE);
     toppings.addTopping(BurgerTopping.BACON);
 
-    assertThat(toppings.price())
-        .isEqualTo(3);
+    List<BurgerTopping> items = toppings.items();
+    assertThat(items)
+        .containsExactlyInAnyOrder(BurgerTopping.CHEESE, BurgerTopping.BACON);
   }
 }

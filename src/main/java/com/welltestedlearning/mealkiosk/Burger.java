@@ -13,6 +13,10 @@ public class Burger implements MenuItem {
     addTopping(theBurgerTopping);
   }
 
+  public Burger(Toppings toppings) {
+    burgerToppings = toppings;
+  }
+
   @Override
   public int price() {
     return BURGER_BASE_PRICE + burgerToppings.price();

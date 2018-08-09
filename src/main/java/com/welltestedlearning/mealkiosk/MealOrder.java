@@ -40,6 +40,10 @@ public class MealOrder {
     items.add(new Burger(burgerOption));
   }
 
+  public void addItem(MenuItem menuItem) {
+    items.add(menuItem);
+  }
+
   public int price() {
     // loop over all items and sum their price
     int price = 0;
@@ -56,5 +60,13 @@ public class MealOrder {
     System.out.println(price());
   }
 
+  public String toString() {
+    StringBuilder sb = new StringBuilder("MealOrder: ");
+    for (MenuItem item : items) {
+      sb.append("->").append(item.toString());
+    }
+    sb.append(", $").append(price());
+    return sb.toString();
+  }
 }
 

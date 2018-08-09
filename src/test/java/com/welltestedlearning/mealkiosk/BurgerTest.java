@@ -52,4 +52,14 @@ public class BurgerTest {
             .isEqualTo(8);
   }
 
+  @Test
+  public void burgerWithMultipleToppingsCheeseBaconCosts8() throws Exception {
+    Toppings toppings = new Toppings();
+    toppings.addTopping(BurgerTopping.BACON);
+    toppings.addTopping(BurgerTopping.CHEESE);
+    Burger burger = new Burger(toppings);
+
+    assertThat(burger.price())
+        .isEqualTo(8);
+  }
 }

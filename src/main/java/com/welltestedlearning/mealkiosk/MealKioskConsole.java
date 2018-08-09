@@ -7,19 +7,13 @@ public class MealKioskConsole {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
 
-    System.out.println("Drink size? (regular, large): ");
-    String inputSize = scanner.nextLine();
-    inputSize = inputSize.toLowerCase();
+    System.out.println("Burger: none/cheese/bacon/avocado? ");
+    String order = scanner.nextLine();
 
-    Drink drink;
-    if (inputSize.equals("regular")) {
-      drink = new Drink(Drink.DRINK_REGULAR);
-    } else if (inputSize.equals("large")) {
-      drink = new Drink(Drink.DRINK_LARGE);
-    } else {
-      throw new DrinkSizeNotValidException("Don't know the Drink Size: '" + inputSize + "'");
-    }
+    MealBuilder mealBuilder = new MealBuilder();
+    mealBuilder.addBurgerString(order);
 
-    System.out.println("Here's your drink: " + drink + ", which costs $" + drink.price());
+    MealOrder mealOrder = mealBuilder.build();
+    mealOrder.display();
   }
 }

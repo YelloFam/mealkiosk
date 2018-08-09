@@ -18,4 +18,15 @@ public class Toppings {
   public void addTopping(BurgerTopping burgerTopping) {
     toppings.add(burgerTopping);
   }
+
+  @Override
+  public String toString() {
+    return "Toppings{" +
+        "toppings=" + toppings +
+        '}';
+  }
+
+  public List<BurgerTopping> items() {
+    return new ArrayList<>(toppings);
+  }
 }

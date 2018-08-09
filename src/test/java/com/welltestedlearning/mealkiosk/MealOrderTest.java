@@ -27,6 +27,8 @@ public class MealOrderTest {
     MealOrder mealOrder = new MealOrder();
     mealOrder.addBurger(BurgerTopping.CHEESE);
 
+    mealOrder.display();
+
     assertThat(mealOrder.price()).isEqualTo(6);
   }
 
