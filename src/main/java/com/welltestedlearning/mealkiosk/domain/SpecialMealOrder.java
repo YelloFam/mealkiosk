@@ -1,4 +1,4 @@
-package com.welltestedlearning.mealkiosk;
+package com.welltestedlearning.mealkiosk.domain;
 
 /**
  * A pre-defined meal that has a fixed price

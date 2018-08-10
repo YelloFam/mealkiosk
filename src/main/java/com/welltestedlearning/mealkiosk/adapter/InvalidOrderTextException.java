@@ -1,4 +1,4 @@
-package com.welltestedlearning.mealkiosk;
+package com.welltestedlearning.mealkiosk.adapter;
 
 public class InvalidOrderTextException extends RuntimeException {
   public InvalidOrderTextException(String message) {

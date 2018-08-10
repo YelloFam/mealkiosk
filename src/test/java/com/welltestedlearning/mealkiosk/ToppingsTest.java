@@ -1,5 +1,7 @@
 package com.welltestedlearning.mealkiosk;
 
+import com.welltestedlearning.mealkiosk.domain.BurgerTopping;
+import com.welltestedlearning.mealkiosk.domain.Toppings;
 import org.junit.Test;
 
 import java.util.List;

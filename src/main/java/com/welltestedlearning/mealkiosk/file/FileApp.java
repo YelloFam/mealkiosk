@@ -1,4 +1,4 @@
-package com.welltestedlearning.mealkiosk;
+package com.welltestedlearning.mealkiosk.file;
 
 import java.io.BufferedReader;
 import java.io.IOException;

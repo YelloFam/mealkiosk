@@ -1,6 +1,6 @@
 package com.welltestedlearning.mealkiosk;
 
-import com.welltestedlearning.mealkiosk.Drink;
+import com.welltestedlearning.mealkiosk.domain.Drink;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

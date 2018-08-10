@@ -1,5 +1,10 @@
 package com.welltestedlearning.mealkiosk;
 
+import com.welltestedlearning.mealkiosk.adapter.InvalidOrderTextException;
+import com.welltestedlearning.mealkiosk.adapter.MealBuilder;
+import com.welltestedlearning.mealkiosk.domain.BurgerTopping;
+import com.welltestedlearning.mealkiosk.domain.MealOrder;
+import com.welltestedlearning.mealkiosk.domain.Toppings;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

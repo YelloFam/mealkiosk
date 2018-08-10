@@ -1,4 +1,7 @@
-package com.welltestedlearning.mealkiosk;
+package com.welltestedlearning.mealkiosk.console;
+
+import com.welltestedlearning.mealkiosk.adapter.MealBuilder;
+import com.welltestedlearning.mealkiosk.domain.MealOrder;
 
 import java.util.Scanner;
 

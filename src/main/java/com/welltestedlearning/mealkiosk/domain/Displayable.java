@@ -1,4 +1,4 @@
-package com.welltestedlearning.mealkiosk;
+package com.welltestedlearning.mealkiosk.domain;
 
 public interface Displayable {
   void display();
