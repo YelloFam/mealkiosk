@@ -12,6 +12,18 @@ import static org.junit.Assert.fail;
 public class MealBuilderTest {
 
   @Test
+  public void orderWithBurgerNoneRegularDrinkCosts6() throws Exception {
+    MealBuilder mealBuilder = new MealBuilder();
+    mealBuilder.addBurgerString("none");
+    mealBuilder.withDrink("regular");
+
+    MealOrder mealOrder = mealBuilder.build();
+
+    assertThat(mealOrder.price())
+        .isEqualTo(6);
+  }
+
+  @Test
   public void orderWithNoneStringCosts5() throws Exception {
     MealBuilder mealBuilder = new MealBuilder();
     mealBuilder.addBurgerString("none");

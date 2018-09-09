@@ -8,9 +8,14 @@ import com.welltestedlearning.mealkiosk.domain.Toppings;
 public class MealBuilder {
 
   private String burgerOrder;
+  private String drinkSize;
 
   public void addBurgerString(String burgerOrderString) {
     burgerOrder = burgerOrderString;
+  }
+
+  public void withDrink(String size) {
+    drinkSize = size;
   }
 
   public MealOrder build() {
@@ -20,6 +25,10 @@ public class MealBuilder {
 
     MealOrder mealOrder = new MealOrder();
     mealOrder.addItem(burger);
+
+    if (drinkSize != null) {
+      mealOrder.addDrink(drinkSize);
+    }
 
     return mealOrder;
   }
