@@ -1,7 +1,5 @@
-package com.welltestedlearning.mealkiosk;
+package com.welltestedlearning.mealkiosk.adapter;
 
-import com.welltestedlearning.mealkiosk.adapter.InvalidOrderTextException;
-import com.welltestedlearning.mealkiosk.adapter.MealBuilder;
 import com.welltestedlearning.mealkiosk.domain.BurgerTopping;
 import com.welltestedlearning.mealkiosk.domain.MealOrder;
 import com.welltestedlearning.mealkiosk.domain.Toppings;

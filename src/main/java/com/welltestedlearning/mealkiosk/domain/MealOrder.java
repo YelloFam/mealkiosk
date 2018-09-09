@@ -68,5 +68,9 @@ public class MealOrder {
     sb.append(", $").append(price());
     return sb.toString();
   }
+
+  public List<MenuItem> menuItems() {
+    return items;
+  }
 }
 

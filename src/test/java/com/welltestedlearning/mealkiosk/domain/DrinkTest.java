@@ -1,22 +1,23 @@
-package com.welltestedlearning.mealkiosk;
+package com.welltestedlearning.mealkiosk.domain;
 
-import com.welltestedlearning.mealkiosk.domain.Drink;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class DrinkTest {
 
   @Test
   public void drinkSizeOfRegularReturns1() throws Exception {
     Drink drink = new Drink(Drink.DRINK_REGULAR);
-    assertEquals(1, drink.price());
+    assertThat(drink.price())
+        .isEqualTo(1);
   }
 
   @Test
   public void drinkSizeOfLargeReturns2() throws Exception {
     Drink drink = new Drink(Drink.DRINK_LARGE);
-    assertEquals(2, drink.price());
+    assertThat(drink.price())
+        .isEqualTo(2);
   }
 
 }

@@ -1,9 +1,5 @@
-package com.welltestedlearning.mealkiosk;
+package com.welltestedlearning.mealkiosk.domain;
 
-import com.welltestedlearning.mealkiosk.domain.BurgerTopping;
-import com.welltestedlearning.mealkiosk.domain.Drink;
-import com.welltestedlearning.mealkiosk.domain.Fries;
-import com.welltestedlearning.mealkiosk.domain.MealOrder;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

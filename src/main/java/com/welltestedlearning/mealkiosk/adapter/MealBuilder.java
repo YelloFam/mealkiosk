@@ -28,7 +28,7 @@ public class MealBuilder {
     order = order.trim();
     if (order.isEmpty()) {
       throw new InvalidOrderTextException("Order string can't be empty.");
-    };
+    }
 
     Toppings toppings = new Toppings();
 

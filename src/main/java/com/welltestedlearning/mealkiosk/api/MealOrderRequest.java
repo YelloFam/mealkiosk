@@ -2,7 +2,6 @@ package com.welltestedlearning.mealkiosk.api;
 
 public class MealOrderRequest {
   private String burger;
-  private String drink;
 
   public String getBurger() {
     return burger;
@@ -12,11 +11,9 @@ public class MealOrderRequest {
     this.burger = burger;
   }
 
-  public String getDrink() {
-    return drink;
-  }
-
-  public void setDrink(String drink) {
-    this.drink = drink;
+  @Override
+  public String toString() {
+    return "MealOrderRequest: " +
+        "burger='" + burger + '\'';
   }
 }
