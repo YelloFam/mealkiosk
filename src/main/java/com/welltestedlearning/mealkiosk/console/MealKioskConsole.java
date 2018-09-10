@@ -14,7 +14,7 @@ public class MealKioskConsole {
     String order = scanner.nextLine();
 
     MealBuilder mealBuilder = new MealBuilder();
-    mealBuilder.addBurgerString(order);
+    mealBuilder.burger(order);
 
     MealOrder mealOrder = mealBuilder.build();
     mealOrder.display();

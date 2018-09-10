@@ -12,15 +12,8 @@ public class MealOrderApiController {
   @PostMapping(value = "/api/mealorder")
   public MealOrderResponse mealOrder(@RequestBody MealOrderRequest mealOrderRequest) {
 
-    String burger = mealOrderRequest.getBurger();
-    String drinkSize = mealOrderRequest.getDrinkSize();
-    String friesSize = mealOrderRequest.getFriesSize();
-
-    MealBuilder mealBuilder = new MealBuilder();
-    mealBuilder.addBurgerString(burger);
-    mealBuilder.withDrink(drinkSize);
-    mealBuilder.withFries(friesSize);
-    MealOrder mealOrder = mealBuilder.build();
+    MealBuilder mealBuilder = MealBuilder.builder();
+    MealOrder mealOrder = mealOrderRequest.build(mealBuilder);
 
     int price = mealOrder.price();
 

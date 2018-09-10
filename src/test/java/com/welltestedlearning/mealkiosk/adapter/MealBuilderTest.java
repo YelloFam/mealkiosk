@@ -13,11 +13,10 @@ public class MealBuilderTest {
 
   @Test
   public void orderWithBurgerNoneRegularDrinkCosts6() throws Exception {
-    MealBuilder mealBuilder = new MealBuilder();
-    mealBuilder.addBurgerString("none");
-    mealBuilder.withDrink("regular");
-
-    MealOrder mealOrder = mealBuilder.build();
+    MealOrder mealOrder = MealBuilder.builder()
+                                     .burger("none")
+                                     .drink("regular")
+                                     .build();
 
     assertThat(mealOrder.price())
         .isEqualTo(6);
@@ -25,11 +24,10 @@ public class MealBuilderTest {
 
   @Test
   public void orderWithBurgerCheeseAndLargeFriesIs11Dollars() throws Exception {
-    MealBuilder mealBuilder = new MealBuilder();
-    mealBuilder.addBurgerString("cheese");
-    mealBuilder.withFries("large");
-
-    MealOrder order = mealBuilder.build();
+    MealOrder order = MealBuilder.builder()
+                                 .burger("cheese")
+                                 .fries("large")
+                                 .build();
 
     // assert that the price is burger (5) + cheese (1) + large-fries (5)
     assertThat(order.price())
@@ -39,7 +37,7 @@ public class MealBuilderTest {
   @Test
   public void orderWithNoneStringCosts5() throws Exception {
     MealBuilder mealBuilder = new MealBuilder();
-    mealBuilder.addBurgerString("none");
+    mealBuilder.burger("none");
 
     MealOrder mealOrder = mealBuilder.build();
 
@@ -50,7 +48,7 @@ public class MealBuilderTest {
   @Test
   public void orderWithCheeseStringCosts6() throws Exception {
     MealBuilder mealBuilder = new MealBuilder();
-    mealBuilder.addBurgerString("cheese");
+    mealBuilder.burger("cheese");
 
     MealOrder mealOrder = mealBuilder.build();
 
@@ -82,8 +80,8 @@ public class MealBuilderTest {
     assertThatThrownBy(() -> {
       MealBuilder.parseToppings("chesee");
     })
-    .isInstanceOf(InvalidOrderTextException.class)
-    .hasMessage("Topping 'chesee' is not a valid topping.");
+        .isInstanceOf(InvalidOrderTextException.class)
+        .hasMessage("Topping 'chesee' is not a valid topping.");
 
   }
 }

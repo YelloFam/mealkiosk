@@ -11,16 +11,25 @@ public class MealBuilder {
   private String drinkSize;
   private String friesSize;
 
-  public void addBurgerString(String burgerOrderString) {
+  // factory method for the builder pattern
+  public static MealBuilder builder() {
+    return new MealBuilder();
+  }
+
+  // return the same instance to allow for chained/fluent method calls
+  public MealBuilder burger(String burgerOrderString) {
     burgerOrder = burgerOrderString;
+    return this;
   }
 
-  public void withDrink(String size) {
+  public MealBuilder drink(String size) {
     drinkSize = size;
+    return this;
   }
 
-  public void withFries(String fries) {
+  public MealBuilder fries(String fries) {
     friesSize = fries;
+    return this;
   }
 
   public MealOrder build() {
