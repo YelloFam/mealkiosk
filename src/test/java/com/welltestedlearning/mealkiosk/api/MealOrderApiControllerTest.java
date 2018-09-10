@@ -18,4 +18,20 @@ public class MealOrderApiControllerTest {
     assertThat(response.getPrice())
         .isEqualTo(8);
   }
+
+  @Test
+  public void regularBurgerWithLargeFriesIs10Dollars() throws Exception {
+    // Given a request...
+    MealOrderRequest mealOrderRequest = new MealOrderRequest();
+    mealOrderRequest.setBurger("none"); // $5
+    mealOrderRequest.setFriesSize("large"); // $5
+
+    // When calling controller.mealOrder
+    MealOrderApiController controller = new MealOrderApiController();
+    MealOrderResponse response = controller.mealOrder(mealOrderRequest);
+
+    // Then assertThat the response has the right price
+    assertThat(response.getPrice())
+        .isEqualTo(10);
+  }
 }

@@ -3,6 +3,7 @@ package com.welltestedlearning.mealkiosk.api;
 public class MealOrderRequest {
   private String burger;
   private String drinkSize;
+  private String friesSize;
 
   public String getBurger() {
     return burger;
@@ -20,10 +21,19 @@ public class MealOrderRequest {
     this.drinkSize = drinkSize;
   }
 
+  public void setFriesSize(String friesSize) {
+    this.friesSize = friesSize;
+  }
+
+  public String getFriesSize() {
+    return friesSize;
+  }
+
   @Override
   public String toString() {
     return "MealOrderRequest: " +
         "burger='" + burger + '\'' +
-        ", drinkSize='" + drinkSize + '\'';
+        ", drinkSize='" + drinkSize + '\'' +
+        ", friesSize='" + friesSize + '\'';
   }
 }

@@ -24,6 +24,19 @@ public class MealBuilderTest {
   }
 
   @Test
+  public void orderWithBurgerCheeseAndLargeFriesIs11Dollars() throws Exception {
+    MealBuilder mealBuilder = new MealBuilder();
+    mealBuilder.addBurgerString("cheese");
+    mealBuilder.withFries("large");
+
+    MealOrder order = mealBuilder.build();
+
+    // assert that the price is burger (5) + cheese (1) + large-fries (5)
+    assertThat(order.price())
+        .isEqualTo(11);
+  }
+
+  @Test
   public void orderWithNoneStringCosts5() throws Exception {
     MealBuilder mealBuilder = new MealBuilder();
     mealBuilder.addBurgerString("none");

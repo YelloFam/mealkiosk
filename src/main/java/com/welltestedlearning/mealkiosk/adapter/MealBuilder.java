@@ -9,6 +9,7 @@ public class MealBuilder {
 
   private String burgerOrder;
   private String drinkSize;
+  private String friesSize;
 
   public void addBurgerString(String burgerOrderString) {
     burgerOrder = burgerOrderString;
@@ -16,6 +17,10 @@ public class MealBuilder {
 
   public void withDrink(String size) {
     drinkSize = size;
+  }
+
+  public void withFries(String fries) {
+    friesSize = fries;
   }
 
   public MealOrder build() {
@@ -28,6 +33,10 @@ public class MealBuilder {
 
     if (drinkSize != null) {
       mealOrder.addDrink(drinkSize);
+    }
+
+    if (friesSize != null) {
+      mealOrder.addFries(friesSize);
     }
 
     return mealOrder;

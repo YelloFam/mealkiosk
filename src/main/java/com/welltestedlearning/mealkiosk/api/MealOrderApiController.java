@@ -14,10 +14,12 @@ public class MealOrderApiController {
 
     String burger = mealOrderRequest.getBurger();
     String drinkSize = mealOrderRequest.getDrinkSize();
+    String friesSize = mealOrderRequest.getFriesSize();
 
     MealBuilder mealBuilder = new MealBuilder();
     mealBuilder.addBurgerString(burger);
     mealBuilder.withDrink(drinkSize);
+    mealBuilder.withFries(friesSize);
     MealOrder mealOrder = mealBuilder.build();
 
     int price = mealOrder.price();
