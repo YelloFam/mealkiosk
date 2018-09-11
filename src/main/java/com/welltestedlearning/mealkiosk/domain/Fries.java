@@ -7,6 +7,7 @@ public class Fries implements MenuItem {
 
   private final String size;
 
+  // validate this
   public Fries(String friesSize) {
     size = friesSize;
   }

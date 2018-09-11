@@ -5,6 +5,7 @@ import java.util.List;
 
 public class MealOrder {
   private List<MenuItem> items = new ArrayList<>();
+  private Long id = null;
 
 
   public MealOrder() {
@@ -61,7 +62,7 @@ public class MealOrder {
   }
 
   public String toString() {
-    StringBuilder sb = new StringBuilder("MealOrder: ");
+    StringBuilder sb = new StringBuilder("MealOrder [id=").append(id).append("]: ");
     for (MenuItem item : items) {
       sb.append("->").append(item.toString());
     }
@@ -71,6 +72,14 @@ public class MealOrder {
 
   public List<MenuItem> menuItems() {
     return items;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public Long getId() {
+    return id;
   }
 }
 
