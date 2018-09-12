@@ -11,11 +11,12 @@ public class MealOrderRepository {
   private Map<Long, MealOrder> mealOrderMap = new HashMap<>();
   private AtomicLong counter = new AtomicLong(0);
 
+  public MealOrderRepository() {
+  }
+
   public MealOrderRepository(MealOrder mealOrder) {
     save(mealOrder);
   }
-
-  public MealOrderRepository() { }
 
   public List<MealOrder> findAll() {
     return new ArrayList<>(mealOrderMap.values());
