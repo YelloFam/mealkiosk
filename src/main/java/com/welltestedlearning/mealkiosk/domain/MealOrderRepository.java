@@ -26,7 +26,11 @@ public class MealOrderRepository {
   }
 
   public MealOrder findOne(Long id) {
-    return mealOrderMap.get(id);
+    MealOrder mealOrder = mealOrderMap.get(id);
+    if (mealOrder == null) {
+      throw new IllegalArgumentException();
+    }
+    return mealOrder;
   }
 
   public MealOrder save(MealOrder mealOrder) {

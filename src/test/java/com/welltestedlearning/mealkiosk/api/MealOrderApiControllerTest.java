@@ -1,11 +1,34 @@
 package com.welltestedlearning.mealkiosk.api;
 
+import com.welltestedlearning.mealkiosk.adapter.MealBuilder;
+import com.welltestedlearning.mealkiosk.domain.MealOrder;
 import com.welltestedlearning.mealkiosk.domain.MealOrderRepository;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class MealOrderApiControllerTest {
+
+  @Test
+  public void getReturnsExistingMealOrderById() throws Exception {
+    // Given: a repository with a meal order saved
+    MealOrderRepository mealOrderRepository = new MealOrderRepository();
+    MealOrder mealOrder = MealBuilder.builder().burger("cheese").build();
+    MealOrder savedMealOrder = mealOrderRepository.save(mealOrder);
+
+    // And: an API Controller with the repository
+    MealOrderApiController controller = new MealOrderApiController(mealOrderRepository);
+
+    // When: we do a GET for the ID
+    Long savedMealOrderId = savedMealOrder.getId();
+    MealOrderResponse response = controller.findMealOrder(savedMealOrderId);
+
+    // Then: we expect the response to have the same ID and price
+    assertThat(response.getId())
+        .isEqualTo(savedMealOrderId.toString());
+    assertThat(response.getPrice())
+        .isEqualTo(mealOrder.price());
+  }
 
   @Test
   public void mealOrderIsStoredInRepository() throws Exception {

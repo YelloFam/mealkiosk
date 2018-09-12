@@ -1,8 +1,17 @@
 package com.welltestedlearning.mealkiosk.api;
 
+import com.welltestedlearning.mealkiosk.domain.MealOrder;
+
 public class MealOrderResponse {
   private int price;
   private String id;
+
+  public static MealOrderResponse from(MealOrder mealOrder) {
+    MealOrderResponse mealOrderResponse = new MealOrderResponse();
+    mealOrderResponse.setPrice(mealOrder.price());
+    mealOrderResponse.setId(mealOrder.getId().toString());
+    return mealOrderResponse;
+  }
 
   public String getId() {
     return id;

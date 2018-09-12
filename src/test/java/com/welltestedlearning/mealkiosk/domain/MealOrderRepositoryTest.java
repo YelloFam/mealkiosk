@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class MealOrderRepositoryTest {
 
@@ -34,8 +35,9 @@ public class MealOrderRepositoryTest {
   public void findOneShouldReturnNullForNonExistentId() throws Exception {
     MealOrderRepository mealOrderRepository = new MealOrderRepository();
 
-    assertThat(mealOrderRepository.findOne(999L))
-        .isNull();
+    assertThatThrownBy(() -> {
+      mealOrderRepository.findOne(999L);
+    }).isInstanceOf(IllegalArgumentException.class);
   }
 
   @Test
