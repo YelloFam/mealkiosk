@@ -1,0 +1,17 @@
+@startuml
+client -> MealKioskApiController: POST MealOrderRequest
+MealKioskApiController -> MealBuilder: MealOrderRequest
+MealKioskApiController <-- MealBuilder: MealOrder
+MealKioskApiController -> Repository: save()
+MealKioskApiController <-- Repository: savedMealOrder
+MealKioskApiController -> KitchenService: sendOrder
+MealKioskApiController <-- KitchenService: orderNumber
+MealKioskApiController -> Repository: save()
+client <-- MealKioskApiController: 200
+client -> MealKioskApiController: GET /1
+MealKioskApiController -> Repository: findOne()
+MealKioskApiController -> KitchenService: status()
+MealKioskApiController <-- KitchenService: orderStatus
+MealKioskApiController <-- Repository: MealOrder
+client <-- MealKioskApiController: 200 | MealOrderResponse
+@enduml

@@ -1,6 +1,7 @@
 package com.welltestedlearning.mealkiosk.api;
 
 import com.welltestedlearning.mealkiosk.adapter.MealBuilder;
+import com.welltestedlearning.mealkiosk.domain.KitchenService;
 import com.welltestedlearning.mealkiosk.domain.MealOrder;
 import com.welltestedlearning.mealkiosk.domain.MealOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MealOrderApiController {
 
+  private KitchenService kitchenService;
   private MealOrderRepository mealOrderRepository;
 
   // We need this so that we're backward compatible with tests that use this constructor
@@ -21,9 +23,12 @@ public class MealOrderApiController {
 
   @Autowired  // if we keep the above default constructor,
   // @Autowired tells Spring to use this constructor
-  public MealOrderApiController(MealOrderRepository mealOrderRepository) {
+  public MealOrderApiController(MealOrderRepository mealOrderRepository,
+      KitchenService kitchenService) {
     this.mealOrderRepository = mealOrderRepository;
+    this.kitchenService = kitchenService;
   }
+
 
   //---- Controller methods ----
 
@@ -34,6 +39,11 @@ public class MealOrderApiController {
     MealOrder mealOrder = mealOrderRequest.build(mealBuilder);
 
     MealOrder savedMealOrder = mealOrderRepository.save(mealOrder);
+
+    Long orderNumber = kitchenService.sendOrder(savedMealOrder);
+    savedMealOrder.updateOrderNumber(orderNumber);
+
+    mealOrderRepository.save(mealOrder);
 
     return MealOrderResponse.from(savedMealOrder);
   }
@@ -47,7 +57,12 @@ public class MealOrderApiController {
       throw new NoSuchOrderException();
     }
 
-    return MealOrderResponse.from(foundMealOrder);
+    MealOrderResponse response = MealOrderResponse.from(foundMealOrder);
+
+    String status = kitchenService.statusFor(1L);
+    response.setStatus(status);
+
+    return response;
   }
 
 }

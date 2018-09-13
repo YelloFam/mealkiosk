@@ -1,6 +1,7 @@
 package com.welltestedlearning.mealkiosk.api;
 
 import com.welltestedlearning.mealkiosk.adapter.MealBuilder;
+import com.welltestedlearning.mealkiosk.domain.KitchenService;
 import com.welltestedlearning.mealkiosk.domain.MealOrder;
 import com.welltestedlearning.mealkiosk.domain.MealOrderRepository;
 import org.junit.Test;
@@ -8,6 +9,8 @@ import org.junit.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class MealOrderApiControllerTest {
+
+  private static final KitchenService DUMMY_KITCHEN_SERVICE = new FakeKitchenService();
 
   @Test
   public void getReturnsExistingMealOrderById() throws Exception {
@@ -17,7 +20,8 @@ public class MealOrderApiControllerTest {
     MealOrder savedMealOrder = mealOrderRepository.save(mealOrder);
 
     // And: an API Controller with the repository
-    MealOrderApiController controller = new MealOrderApiController(mealOrderRepository);
+    MealOrderApiController controller =
+        new MealOrderApiController(mealOrderRepository, DUMMY_KITCHEN_SERVICE);
 
     // When: we do a GET for the ID
     Long savedMealOrderId = savedMealOrder.getId();
@@ -37,7 +41,8 @@ public class MealOrderApiControllerTest {
     MealOrderRequest mealOrderRequest = new MealOrderRequest();
     mealOrderRequest.setBurger("none");
 
-    MealOrderApiController controller = new MealOrderApiController(mealOrderRepository);
+    MealOrderApiController controller = new MealOrderApiController(mealOrderRepository,
+                                                                   DUMMY_KITCHEN_SERVICE);
     MealOrderResponse response = controller.mealOrder(mealOrderRequest);
 
     assertThat(mealOrderRepository.findAll())
@@ -50,7 +55,8 @@ public class MealOrderApiControllerTest {
     mealOrderRequest.setBurger("cheese"); // $6
     mealOrderRequest.setDrinkSize("large"); // $2
 
-    MealOrderApiController controller = new MealOrderApiController(new MealOrderRepository());
+    MealOrderApiController controller = new MealOrderApiController(
+        new MealOrderRepository(), DUMMY_KITCHEN_SERVICE);
     MealOrderResponse response = controller.mealOrder(mealOrderRequest);
 
     assertThat(response.getPrice())
@@ -65,7 +71,8 @@ public class MealOrderApiControllerTest {
     mealOrderRequest.setFriesSize("large"); // $5
 
     // When calling controller.mealOrder
-    MealOrderApiController controller = new MealOrderApiController(new MealOrderRepository());
+    MealOrderApiController controller = new MealOrderApiController(
+        new MealOrderRepository(), DUMMY_KITCHEN_SERVICE);
     MealOrderResponse response = controller.mealOrder(mealOrderRequest);
 
     // Then assertThat the response has the right price

@@ -6,6 +6,15 @@ import java.util.List;
 public class MealOrder {
   private List<MenuItem> items = new ArrayList<>();
   private Long id = null; // object references are null by default, but we'll be explicit
+  private Long orderNumber;
+
+  public Long orderNumber() {
+    return orderNumber;
+  }
+
+  public void updateOrderNumber(Long newOrderNumber) {
+    orderNumber = newOrderNumber;
+  }
 
   public MealOrder() {
   }
