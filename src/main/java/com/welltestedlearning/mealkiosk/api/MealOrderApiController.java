@@ -59,7 +59,7 @@ public class MealOrderApiController {
 
     MealOrderResponse response = MealOrderResponse.from(foundMealOrder);
 
-    String status = kitchenService.statusFor(1L);
+    String status = kitchenService.statusFor(foundMealOrder.orderNumber());
     response.setStatus(status);
 
     return response;
