@@ -7,7 +7,7 @@ public class Dessert implements MenuItem {
   }
 
   @Override
-  public void display() {
-    System.out.println("Dessert");
+  public String display() {
+    return "Dessert";
   }
 }

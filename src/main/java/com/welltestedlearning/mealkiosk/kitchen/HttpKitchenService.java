@@ -20,9 +20,21 @@ public class HttpKitchenService implements KitchenService {
 
   @Override
   public Long sendOrder(MealOrder mealOrder) {
-    return 1L;
-  }
+    // * Transform the MealOrder to a SendOrderRequest object
+    //   Use the static .from() method on SendOrderRequest
+    // * Name the variable orderRequest
 
+    SendOrderRequest orderRequest = SendOrderRequest.from(mealOrder);
+
+    // * This will execute the POST operation:
+
+    CreatedOrderResponse response = restTemplate.postForObject(
+        KITCHEN_POST_URL, orderRequest, CreatedOrderResponse.class);
+
+    // * Extract the orderNumber from the response
+    // * Return the orderNumber
+    return response.getOrderNumber();
+  }
   @Override
   public String statusFor(Long orderNumber) {
     Map<String, String> uriVariables = new HashMap<>();

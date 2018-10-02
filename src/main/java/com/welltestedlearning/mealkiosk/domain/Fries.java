@@ -13,8 +13,8 @@ public class Fries implements MenuItem {
   }
 
   @Override
-  public void display() {
-    System.out.println("Fries, size " + size);
+  public String display() {
+    return "Fries: " + size;
   }
 
   @Override

@@ -26,8 +26,8 @@ public class Burger implements MenuItem {
     burgerToppings.addTopping(topping);
   }
 
-  public void display() {
-    System.out.println("Burger: " + burgerToppings);
+  public String display() {
+    return "Burger: " + burgerToppings.display();
   }
 
   @Override

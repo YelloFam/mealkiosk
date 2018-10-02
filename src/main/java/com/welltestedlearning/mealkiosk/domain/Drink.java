@@ -39,8 +39,8 @@ public class Drink implements MenuItem {
   }
 
   @Override
-  public void display() {
-    System.out.println(toString());
+  public String display() {
+    return "Drink: " + size;
   }
 
   @Override
