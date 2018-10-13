@@ -1,4 +1,4 @@
-package com.welltestedlearning.mealkiosk.console;
+package com.welltestedlearning.mealkiosk.adapter.console;
 
 import com.welltestedlearning.mealkiosk.adapter.MealBuilder;
 import com.welltestedlearning.mealkiosk.domain.MealOrder;

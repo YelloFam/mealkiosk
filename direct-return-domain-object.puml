@@ -1,0 +1,28 @@
+@startuml
+
+participant client
+activate client
+activate SpringBoot
+activate ApiController
+
+client -> SpringBoot: GET /api/mealorders/123
+
+SpringBoot -> SpringBoot: {id} = 123
+SpringBoot -> ApiController: mealOrderInfo("123")
+create MealOrder
+ApiController -> MealOrder: find MealOrder
+activate MealOrder
+
+ApiController --> SpringBoot: mealOrder
+SpringBoot -> Jackson: mapToJson(mealOrder)
+Jackson -> MealOrder: getId (id)
+MealOrder -> Jackson: id
+Jackson -> Jackson: generate JSON
+deactivate MealOrder
+Jackson --> SpringBoot: {json}
+
+SpringBoot --> client: {json}
+deactivate ApiController
+deactivate SpringBoot
+deactivate client
+@enduml

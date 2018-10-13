@@ -1,4 +1,4 @@
-package com.welltestedlearning.mealkiosk.api;
+package com.welltestedlearning.mealkiosk.adapter.api;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

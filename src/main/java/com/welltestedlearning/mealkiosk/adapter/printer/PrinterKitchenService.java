@@ -1,4 +1,4 @@
-package com.welltestedlearning.mealkiosk.printer;
+package com.welltestedlearning.mealkiosk.adapter.printer;
 
 import com.welltestedlearning.mealkiosk.domain.KitchenService;
 import com.welltestedlearning.mealkiosk.domain.MealOrder;

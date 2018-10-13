@@ -1,4 +1,4 @@
-package com.welltestedlearning.mealkiosk.kitchen;
+package com.welltestedlearning.mealkiosk.adapter.kitchen;
 
 public class CreatedOrderResponse {
   private Long orderNumber;

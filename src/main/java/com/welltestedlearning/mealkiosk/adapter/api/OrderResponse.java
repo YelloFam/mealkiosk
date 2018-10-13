@@ -1,4 +1,4 @@
-package com.welltestedlearning.mealkiosk.api;
+package com.welltestedlearning.mealkiosk.adapter.api;
 
 public class OrderResponse {
   private Long orderNumber; // This is the Kitchen's internal ID number

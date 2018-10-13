@@ -1,6 +1,6 @@
-package com.welltestedlearning.mealkiosk.kitchen;
+package com.welltestedlearning.mealkiosk.adapter.kitchen;
 
-import com.welltestedlearning.mealkiosk.api.OrderResponse;
+import com.welltestedlearning.mealkiosk.adapter.api.OrderResponse;
 import com.welltestedlearning.mealkiosk.domain.KitchenService;
 import com.welltestedlearning.mealkiosk.domain.MealOrder;
 import org.springframework.context.annotation.Profile;
