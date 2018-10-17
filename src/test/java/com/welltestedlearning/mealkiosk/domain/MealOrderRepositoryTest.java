@@ -11,7 +11,7 @@ public class MealOrderRepositoryTest {
 
   @Test
   public void findAllOnNewRepositoryReturnsEmptyList() throws Exception {
-    MealOrderRepository mealOrderRepository = new MealOrderRepository();
+    MealOrderRepository mealOrderRepository = new FakeMealOrderRepository();
     assertThat(mealOrderRepository.findAll())
         .isEmpty();
   }
@@ -22,7 +22,7 @@ public class MealOrderRepositoryTest {
     mealOrder.addBurger(BurgerTopping.CHEESE);
     mealOrder.setId(1L);
 
-    MealOrderRepository mealOrderRepository = new MealOrderRepository(mealOrder);
+    MealOrderRepository mealOrderRepository = new FakeMealOrderRepository(mealOrder);
     List<MealOrder> all = mealOrderRepository.findAll();
     assertThat(all)
         .hasSize(1);
@@ -33,7 +33,7 @@ public class MealOrderRepositoryTest {
   // First test for non-existent ID (method should return random object)
   @Test
   public void findOneShouldReturnNullForNonExistentId() throws Exception {
-    MealOrderRepository mealOrderRepository = new MealOrderRepository();
+    MealOrderRepository mealOrderRepository = new FakeMealOrderRepository();
 
     assertThatThrownBy(() -> {
       mealOrderRepository.findOne(999L);
@@ -45,7 +45,7 @@ public class MealOrderRepositoryTest {
     MealOrder mealOrder = new MealOrder();
     mealOrder.setId(1L);
 
-    MealOrderRepository mealOrderRepository = new MealOrderRepository(mealOrder);
+    MealOrderRepository mealOrderRepository = new FakeMealOrderRepository(mealOrder);
 
     MealOrder one = mealOrderRepository.findOne(1L);
     assertThat(one)
@@ -56,7 +56,7 @@ public class MealOrderRepositoryTest {
 
   @Test
   public void saveNewMealOrderCanBeFoundByItsId() throws Exception {
-    MealOrderRepository mealOrderRepository = new MealOrderRepository();
+    MealOrderRepository mealOrderRepository = new FakeMealOrderRepository();
 
     MealOrder mealOrder = new MealOrder();
 
@@ -68,7 +68,7 @@ public class MealOrderRepositoryTest {
 
   @Test
   public void newlySavedMealOrdersHaveUniqueIds() {
-    MealOrderRepository mealOrderRepository = new MealOrderRepository();
+    MealOrderRepository mealOrderRepository = new FakeMealOrderRepository();
 
     MealOrder mealOrder1 = new MealOrder();
     MealOrder savedMealOrder1 = mealOrderRepository.save(mealOrder1);
@@ -82,7 +82,7 @@ public class MealOrderRepositoryTest {
 
   @Test
   public void updateExistingMealOrderOverwritesPreviouslySavedOrder() throws Exception {
-    MealOrderRepository mealOrderRepository = new MealOrderRepository();
+    MealOrderRepository mealOrderRepository = new FakeMealOrderRepository();
     MealOrder mealOrder = new MealOrder();
     MealOrder savedMealOrder = mealOrderRepository.save(mealOrder);
 

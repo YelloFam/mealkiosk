@@ -1,6 +1,7 @@
 package com.welltestedlearning.mealkiosk.adapter.api;
 
 import com.welltestedlearning.mealkiosk.adapter.MealBuilder;
+import com.welltestedlearning.mealkiosk.domain.FakeMealOrderRepository;
 import com.welltestedlearning.mealkiosk.domain.KitchenService;
 import com.welltestedlearning.mealkiosk.domain.MealOrder;
 import com.welltestedlearning.mealkiosk.domain.MealOrderRepository;
@@ -15,7 +16,7 @@ public class MealOrderApiControllerTest {
   @Test
   public void getReturnsExistingMealOrderById() throws Exception {
     // Given: a repository with a meal order saved
-    MealOrderRepository mealOrderRepository = new MealOrderRepository();
+    MealOrderRepository mealOrderRepository = new FakeMealOrderRepository();
     MealOrder mealOrder = MealBuilder.builder().burger("cheese").build();
     MealOrder savedMealOrder = mealOrderRepository.save(mealOrder);
 
@@ -36,7 +37,7 @@ public class MealOrderApiControllerTest {
 
   @Test
   public void mealOrderIsStoredInRepository() throws Exception {
-    MealOrderRepository mealOrderRepository = new MealOrderRepository();
+    MealOrderRepository mealOrderRepository = new FakeMealOrderRepository();
 
     MealOrderRequest mealOrderRequest = new MealOrderRequest();
     mealOrderRequest.setBurger("none");
@@ -56,7 +57,7 @@ public class MealOrderApiControllerTest {
     mealOrderRequest.setDrinkSize("large"); // $2
 
     MealOrderApiController controller = new MealOrderApiController(
-        new MealOrderRepository(), DUMMY_KITCHEN_SERVICE);
+        new FakeMealOrderRepository(), DUMMY_KITCHEN_SERVICE);
     MealOrderResponse response = controller.mealOrder(mealOrderRequest);
 
     assertThat(response.getPrice())
@@ -72,7 +73,7 @@ public class MealOrderApiControllerTest {
 
     // When calling controller.mealOrder
     MealOrderApiController controller = new MealOrderApiController(
-        new MealOrderRepository(), DUMMY_KITCHEN_SERVICE);
+        new FakeMealOrderRepository(), DUMMY_KITCHEN_SERVICE);
     MealOrderResponse response = controller.mealOrder(mealOrderRequest);
 
     // Then assertThat the response has the right price
